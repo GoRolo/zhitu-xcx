@@ -9,6 +9,7 @@
 <script>
 import teacherItem from '@/components/teacher-item'
 import selectBar from '@/components/select-bar'
+import UTILS from "@/utils/index";
 
 export default {
   data () {
@@ -63,9 +64,19 @@ export default {
   components: {
     teacherItem, selectBar
   },
-
+  mounted () {
+    this.getMainInfo();
+  },
   methods: {
-    
+    getMainInfo: async function(){
+      let mainInfo = {};
+      try {
+        mainInfo = await UTILS.getMainInfo();
+        console.log(mainInfo);
+      } catch(e) {
+        console.log(e);
+      }
+    }
   },
 }
 </script>

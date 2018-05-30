@@ -1,28 +1,43 @@
-function formatNumber (n) {
-  const str = n.toString()
-  return str[1] ? str : `0${str}`
+//创建ajax请求
+const makeRequest = ({
+  url,
+  method = 'GET',
+  header = {},
+  param = {},
+
+}) => {
+  if(typeof param !== 'object') {
+    throw new Error('param参数必须是一个对象呦!!!')
+  }
+  if(typeof header !== 'object') {
+    throw new Error('header参数必须是一个对象呦!!!')
+  }
+  if(!url) {
+    throw new Error('必须要有请求url的呦!!!')
+  }
+  return new Promise((resolve,reject) => {
+    wx.request({
+      url: url,
+      method: method,
+      data: param,
+      header: header,
+      dataType: 'json',
+      success: (res) => {
+        resolve(res)
+      },
+      fail: (error) => {
+        reject(error)
+      },
+      complete: () => {}
+    })
+  })
+}
+const APIREQUEST = {
+  getMainInfo: () => {
+    return makeRequest({
+      url: 'http://api.zhituteam.com/api/index'
+    })
+  }
 }
 
-export function formatTime (date) {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  const second = date.getSeconds()
-
-  const t1 = [year, month, day].map(formatNumber).join('/')
-  const t2 = [hour, minute, second].map(formatNumber).join(':')
-
-  return `${t1} ${t2}`
-}
-
-function ajaxRequest () {
-  
-}
-
-export default {
-  formatNumber,
-  formatTime
-}
+export default APIREQUEST

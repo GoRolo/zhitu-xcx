@@ -10,7 +10,7 @@
             console.log(this.$root.$mp.query.name)
         },
         methods: {
-
+            
         }
     }
 </script>
