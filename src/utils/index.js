@@ -18,6 +18,10 @@ export function formatTime (date) {
   return `${t1} ${t2}`
 }
 
+function ajaxRequest () {
+  
+}
+
 export default {
   formatNumber,
   formatTime
