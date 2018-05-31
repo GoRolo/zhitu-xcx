@@ -9,7 +9,7 @@
 <script>
 import teacherItem from '@/components/teacher-item'
 import selectBar from '@/components/select-bar'
-import UTILS from "@/utils/index";
+import UTILS from "@/utils/api";
 
 export default {
   data () {
