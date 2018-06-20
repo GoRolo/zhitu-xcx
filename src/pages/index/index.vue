@@ -1,8 +1,9 @@
 <template>
   <div class="main">
-    <div class="banner"><img src="http://api.zhituteam.com/upload/banner/banner.png"></div>
+    <div class="banner" v-if="mainInfo.banner"><img :src="mainInfo.banner[0].image"></div>
     <selectBar :isfixed="isFixed"></selectBar>
-    <teacherItem :list="teacherList"></teacherItem>
+    <teacherItem :list="list"></teacherItem>
+    <div class="tips"></div>
   </div>
 </template>
 
@@ -14,44 +15,10 @@ import UTILS from "@/utils/api";
 export default {
   data () {
     return {
-      teacherList: [
-        {
-          name: "王老师",
-          age: "40岁",
-          class: "三年级"
-        },
-        {
-          name: "王老师",
-          age: "40岁",
-          class: "三年级"
-        },
-        {
-          name: "王老师",
-          age: "40岁",
-          class: "三年级"
-        },
-        {
-          name: "王老师",
-          age: "40岁",
-          class: "三年级"
-        },
-        {
-          name: "王老师",
-          age: "40岁",
-          class: "三年级"
-        },
-        {
-          name: "王老师",
-          age: "40岁",
-          class: "三年级"
-        },
-        {
-          name: "王老师",
-          age: "40岁",
-          class: "三年级"
-        },
-      ],
-      isFixed: false
+      mainInfo: {},
+      isFixed: false,
+      list: [],//教师列表
+      options: [],//筛选项
     }
   },
   onPageScroll: function(e){
@@ -66,13 +33,25 @@ export default {
   },
   mounted () {
     this.getMainInfo();
+    this.getTeacherList();
   },
   methods: {
     getMainInfo: async function(){
       let mainInfo = {};
       try {
         mainInfo = await UTILS.getMainInfo();
-        console.log(mainInfo);
+        this.mainInfo = mainInfo.data.data;
+        this.list = mainInfo.data.data.teacher;
+      } catch(e) {
+        console.log(e);
+      }
+    },
+    getTeacherList: async function(param){
+      let listInfo = {};
+      try {
+        listInfo = await UTILS.getTeacherList();
+        this.options = listInfo.data.data.condition;
+        console.log(this.options);
       } catch(e) {
         console.log(e);
       }
@@ -87,5 +66,13 @@ export default {
       width: 100%;
       height: 130px;
     }
+  }
+  .tips {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
   }
 </style>

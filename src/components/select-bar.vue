@@ -1,9 +1,12 @@
 <template>
-    <div class="bar">
-        <div class="bar-container" :class="isfixed ? 'p-fixed' : ''">
-            <div class="item">年级</div>
-            <div class="item">学科</div>
-            <div class="item">授课方式</div>
+    <div class="bar" :class="isfixed ? 'p-fixed' : ''">
+        <div class="bar-container">
+            <div class="item" data-key="1" @click="clickOption">年级</div>
+            <div class="item" data-key="2">学科</div>
+            <div class="item" data-key="3">授课方式</div>
+        </div>
+        <div v-if="isfixed" class="options-box">
+          <span></span>
         </div>
         <div v-if="isfixed" class="timp-bar"></div>
     </div>
@@ -12,15 +15,26 @@
     export default {
         props: ["isfixed"],
         data () {
-            return {}
+            return {
+              showOptions: false
+            }
         },
         mounted () {},
         methods: {
-
+          clickOption: function(e){
+            this.showOptions = true;
+          }
         }
     }
 </script>
 <style lang="scss" scoped>
+    .bar {
+      position: relative;
+      .options-box {
+        background: #fff;
+        height: 100px;
+      }
+    }
     .timp-bar {
        height: 40px; 
     }

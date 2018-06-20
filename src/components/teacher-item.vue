@@ -2,10 +2,10 @@
   <div class="teacher-list">
     <template v-for="(item, index) in list">
       <div class="teacher-item" v-on:click="jumpDetail(item)">
-        <img src="http://api.zhituteam.com/upload/userimage/11385343fbf2b2112c3c2c0dc38065380cd78e67.jpg">
-        <p><span class="name">王老师</span><span class="teach-times">授课100分钟</span></p>
-        <p><span class="teach-years">9年教龄</span></p>
-        <p><span class="sub-tag">数学</span><span class="grade-tag">初一</span></p>
+        <img :src="item.image">
+        <p><span class="name">{{item.realname}}</span><span class="teach-times">授课{{ item.teach_time }}分钟</span></p>
+        <p><span class="teach-years">{{item.teach_year}}年教龄</span></p>
+        <p><span v-for="(subtag, subtagindex) in item.subject" class="sub-tag">{{subtag.label}}</span><span v-for="(gradetag, gradeindex) in item.grade" class="grade-tag">{{gradetag.label}}</span></p>
       </div>
     </template>
   </div>

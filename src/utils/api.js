@@ -37,6 +37,12 @@ const APIREQUEST = {
     return makeRequest({
       url: 'http://api.zhituteam.com/api/index'
     })
+  },
+  getTeacherList: (param) => {
+    return makeRequest({
+      url: 'http://api.zhituteam.com/api/teacher/lists',
+      param: param
+    })
   }
 }
 
