@@ -34,14 +34,14 @@ zhitu-xcx
 |--config
 |--dist  产出的小程序相关文件结构，放在小程序开发工具中看效果
 |--src  项目主要代码文件夹
-|--static  静态资源
    |--commponents  公共组件文件夹
    |--pages  页面目录
       |--index 主页
          |--index.vue  主页相关css样式 逻辑 模版
    |--utils  公共方法目录
-   |--App.vue 主组组件
+   |--App.vue 感觉没啥用
    |--main.js  相当于小程序中的app.json
+|--static  静态资源
 |--index.html  vue.js 单页面应用主入口文件
 ```
 
