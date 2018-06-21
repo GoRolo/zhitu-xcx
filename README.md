@@ -22,11 +22,6 @@ npm run dev
 * 下载并打开小程序开发工具: [下载地址](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)
 * 新建小程序项目: 选中zhitu-xcx/dist文件夹，打开后即可看到效果
 
-## 代码规范
-* 项目中没有引入eslint，开发时应注意相关js代码规范
-* 着重使用es6相关新特性
-* 着重使用vue.js组件化开发
-
 ## 目录说明
 ```
 zhitu-xcx
