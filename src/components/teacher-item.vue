@@ -1,11 +1,11 @@
 <template>
   <div class="teacher-list">
-    <template v-for="(item, index) in list">
+    <template v-for="(item, index) in list" wx:key="item.id">
       <div class="teacher-item" v-on:click="jumpDetail(item)">
         <img :src="item.image">
         <p><span class="name">{{item.realname}}</span><span class="teach-times">授课{{ item.teach_time }}分钟</span></p>
         <p><span class="teach-years">{{item.teach_year}}年教龄</span></p>
-        <p><span v-for="(subtag, subtagindex) in item.subject" class="sub-tag">{{subtag.label}}</span><span v-for="(gradetag, gradeindex) in item.grade" class="grade-tag">{{gradetag.label}}</span></p>
+        <p><span v-for="(subtag, subtagindex) in item.subject"  wx:key="subtag.id" class="sub-tag">{{subtag.label}}</span><span v-for="(gradetag, gradeindex) in item.grade" wx:key="gradetag.id" class="grade-tag">{{gradetag.label}}</span></p>
       </div>
     </template>
   </div>
@@ -17,7 +17,7 @@ export default {
   methods: {
     jumpDetail: item => {
       wx.navigateTo({
-        url: `/pages/detail/main?name=${item.name}`
+        url: `/pages/detail/main?id=${item.id}`
       })
     }
   }
@@ -37,7 +37,7 @@ export default {
     }
     p:nth-of-type(3) {
       position: relative;
-      top: 10px;
+      // top: 10px;
     }
     img {
       width: 80px;

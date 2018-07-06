@@ -33,6 +33,7 @@
       .options-box {
         background: #fff;
         height: 100px;
+        display: none;
       }
     }
     .timp-bar {

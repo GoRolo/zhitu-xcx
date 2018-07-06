@@ -43,6 +43,11 @@ const APIREQUEST = {
       url: 'http://api.zhituteam.com/api/teacher/lists',
       param: param
     })
+  },
+  getTeacherDetail: (id) => {
+    return makeRequest({
+      url: `http://api.zhituteam.com/api/teacher/info/id/${id}`,
+    })
   }
 }
 
