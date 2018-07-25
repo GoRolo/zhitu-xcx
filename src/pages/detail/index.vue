@@ -38,12 +38,7 @@
       <hr>
     </div>
     <div class="order-btn">
-      <div class="btn" :class="mainInfo.teacher.is_collect == '1'? 'collected':'collect'" @click="collect"><span>
-        {{ mainInfo.teacher.is_collect == '1'? '已收藏':'收藏' }}
-      </span></div>
-      <div class="btn order-now" :style="mainInfo.teacher.is_select == '1'?'background:#666':''" @click="course">
-        {{ mainInfo.teacher.is_select == '1'? '已预约':'预约试讲' }}
-      </div>
+      <div class="btn order-now" @click="course">预约试讲</div>
     </div>
   </div>
 </template>
@@ -79,7 +74,10 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '../../../static/css/mixin';
+  @import '../../utils/mixin';
+  .teacher-detail {
+    padding-bottom: Rem(80);
+  }
   .info-box {
     background: #fff;
     padding: Rem(15) 0 Rem(7) 0;
@@ -127,7 +125,7 @@ export default {
   .order-line {
     width: 60%;
     position: relative;
-    margin: Rem(30) auto Rem(80) auto;
+    margin: Rem(30) auto 0 auto;
     hr {
       margin: 0;
       padding: 0;
@@ -183,11 +181,11 @@ export default {
       }
     }
     .order-now {
-      width: 85%;
+      width: 100%;
       background: #2dc072;
     }
     .order-no{
-      width: 85%;
+      width: 100%;
       background: #666;
     }
   }

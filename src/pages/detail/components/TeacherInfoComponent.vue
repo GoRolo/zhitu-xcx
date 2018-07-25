@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import 'static/css/mixin';
+  @import '../../../utils/mixin';
   .a,.teacher-item {
     background: #fff;
     height: Rem(110);

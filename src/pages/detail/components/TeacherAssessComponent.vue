@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import 'static/css/mixin';
+  @import '../../../utils/mixin';
   .assess {
     font-size: 0;
     .assess-item {
