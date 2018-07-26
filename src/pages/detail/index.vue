@@ -38,7 +38,7 @@
       <hr>
     </div>
     <div class="order-btn">
-      <div class="btn order-now" @click="course">预约试讲</div>
+      <div class="btn order-now" @click="orderTeacher">预约试讲</div>
     </div>
   </div>
 </template>
@@ -51,11 +51,12 @@ export default {
   name: 'TeacherDetail',
   data () {
     return {
-      mainInfo: {}
+      mainInfo: {},
+      isShowTip: false,
+      isOverflowHidden: false
     }
   },
   mounted () {
-    console.log(this.$root.$mp.query);
     this.getTeacherDetail(this.$root.$mp.query.id);
   },
   methods: {
@@ -68,6 +69,11 @@ export default {
         console.log(e);
       }
     },
+    orderTeacher: function(){
+      wx.navigateTo({
+        url: `/pages/order/main?id=${this.$root.$mp.query.id}`
+      })
+    }
   },
   components: { TeacherInfoComponent, TeacherAssessComponent }
 }

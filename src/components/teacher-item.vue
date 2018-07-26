@@ -36,8 +36,8 @@ export default {
       top: -4px;
     }
     p:nth-of-type(3) {
-      position: relative;
-      // top: 10px;
+      position: absolute;
+      bottom: 15px;
     }
     img {
       width: 80px;
@@ -66,8 +66,8 @@ export default {
       padding: 0 4px;
       color: #fff;
       border-radius: 3px;
-      background: #c11c3b;
-      border: 1px solid #c11c3b;
+      background: #52c644;
+      border: 1px solid #52c644;
       margin-right: 6px;
     }
     .grade-tag {
@@ -75,9 +75,8 @@ export default {
       display: inline-block;
       padding: 0 4px;
       border-radius: 3px;
-      background-color: #f9e8eb;
-      border: 1px solid #f9e8eb;
-      color: #c11c3b;
+      border: 1px solid #097c25;
+      color: #097c25;
       margin-right: 6px;
     }
   }

@@ -35,18 +35,25 @@ const makeRequest = ({
 const APIREQUEST = {
   getMainInfo: () => {
     return makeRequest({
-      url: 'http://api.zhituteam.com/api/index'
+      url: 'https://api.zhituteam.com/api/index'
     })
   },
   getTeacherList: (param) => {
     return makeRequest({
-      url: 'http://api.zhituteam.com/api/teacher/lists',
+      url: 'https://api.zhituteam.com/api/teacher/lists',
       param: param
     })
   },
   getTeacherDetail: (id) => {
     return makeRequest({
-      url: `http://api.zhituteam.com/api/teacher/info/id/${id}`,
+      url: `https://api.zhituteam.com/api/teacher/info/id/${id}`,
+    })
+  },
+  orderTeacher: (param) => {
+    return makeRequest({
+      url: `https://api.zhituteam.com/wx/apply/add`,
+      method: `post`,
+      param: param
     })
   }
 }
